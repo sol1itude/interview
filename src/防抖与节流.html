@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        /**
+        *防抖debounce
+        *1.对于在事件被触发n秒后在执行的回调 延迟执行
+        *2.如果这n秒内在触发事件，则重新计算时间
+        */
+        var t = null
+        var oBox = document.getElementsByClassName('box')[0];
+        oBox.onmouseover = function (){
+            clearTimeout(t)
+            t = setTimeout(() => {
+                console.log(1);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

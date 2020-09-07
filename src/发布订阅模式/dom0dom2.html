@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="dianji">点击事件</button>
+    <script>
+        // DOM0和DOM2的区别
+        let oBtn = document.getElementsByTagName('button')[0];
+        // dom0事件
+        function dianji(){
+            console.log('dom0-1');
+        }
+        oBtn.onclick = function(){
+            console.log('dom0-2');
+        }
+        oBtn.onclick = function(){
+            console.log('dom0-3');
+        }
+        // dom0事件会被覆盖只执行最后一次触发
+
+
+        // dom2事件
+        oBtn.addEventListener('click', function(){
+            console.log('dom2-1');
+        })
+        oBtn.addEventListener('click', function(){
+            console.log('dom2-2');
+        })
+        // dom2事件会依次执行
+        
+
+        // 区别
+        /**
+         * 1.语法上的区别
+         * dom0: oBtn.onclick = function(){};
+         * dom2: oBtn.addEventListener('click', function(){});
+         * 
+         * 2.底层机制区别
+         * DOM0是给元素的某个属性绑定方法（有效绑定的方法只有一个）
+         * DOM2是基于事件池机制完成，每增加一个绑定的方法，都会往事件池存放一个。。。 当事件触发会一次执行
+         * 事件池中的事件。发布订阅其实就是模拟的事件池机制（可以给同一个元素的某个事件绑定多个不同的方法）
+         * 
+         * 3.DOM2可以绑定一些特殊的事件类型，这些事件类型DOM0不支持，例如DOMContentLoaded
+         * 、transitionend(css动画触发完成)
+        */
+
+        /**
+         * 
+        */
+    </script>
+</body>
+</html>

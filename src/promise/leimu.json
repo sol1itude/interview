@@ -1,13 +1,1 @@
-{
-    "username": "leimu",
-    "course": [{
-        "id": 1,
-        "name": "js"
-    }, {
-        "id": 3,
-        "name": "css"
-    }, {
-        "id": 5,
-        "name": "react"
-    }]
-}
+{"username":"leimu","course":[{"id":1,"name":"js"},{"id":3,"name":"css"},{"id":5,"name":"react"}]}
